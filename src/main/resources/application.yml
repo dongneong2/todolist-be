@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: todolist
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://marcus-mysql-db.cjonqlniwrjn.ap-northeast-2.rds.amazonaws.com:3306
+    username: admin_marcus
+    password: 12341234
+
+mybatis:
+  mapper-locations: mybatis/*.xml

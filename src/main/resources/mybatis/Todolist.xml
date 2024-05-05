@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.todolist.repository.TodolistMapper">
+    <select id="selectTodolist"  resultType="com.example.todolist.model.TodolistResponseDTO">
+        SELECT id, description, is_completed, created_date
+        FROM test.todo_list
+    </select>
+
+    <insert id="createTodoItem" parameterType="String">
+        INSERT INTO test.todo_list (description, is_completed, created_date)
+        VALUES (#{description}, false, now())
+    </insert>
+
+    <update id="updateTodoItem" parameterType="Integer">
+        UPDATE test.todo_list
+        SET is_completed = true
+        WHERE id=#{id}
+    </update>
+
+    <update id="deleteTodoItem" parameterType="Integer">
+        DELETE FROM test.todo_list
+        WHERE id=#{id}
+    </update>
+</mapper>
